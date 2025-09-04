@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="#F8F8F8"
+        android:layout_weight="1"/>
+
+        <LinearLayout
+            android:background="#F8F8F8"
+            android:paddingHorizontal="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end|bottom"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/previous_equation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:fontFamily="@font/doppioone_regular"
+                android:letterSpacing="0.15"
+                android:textColor="#55423866"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/input_digit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:breakStrategy="balanced"
+                android:fontFamily="@font/doppioone_regular"
+                android:letterSpacing="0.15"
+                android:text="@string/_0"
+                android:textColor="#554238"
+                android:textSize="36sp" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_text"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_holder" />
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/devide"
+            style="@style/operator_button"
+            android:layout_marginVertical="4dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/divide"
+            app:layout_constraintBottom_toTopOf="@id/times"
+            app:layout_constraintEnd_toEndOf="@+id/times"
+            app:layout_constraintStart_toStartOf="@+id/times" />
+
+        <Button
+            android:id="@+id/reminder"
+            style="@style/operator_button"
+            android:gravity="center"
+            android:text="@string/percent"
+            app:layout_constraintBottom_toTopOf="@id/no_nine"
+            app:layout_constraintEnd_toEndOf="@+id/no_nine"
+            app:layout_constraintStart_toStartOf="@+id/no_nine" />
+
+        <ImageButton
+            android:id="@+id/delete"
+            style="@style/number_button"
+            android:layout_marginVertical="4dp"
+            android:contentDescription="@string/delete_button"
+            android:gravity="center"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintBottom_toTopOf="@id/no_eight"
+            app:layout_constraintEnd_toEndOf="@+id/no_eight"
+            app:layout_constraintStart_toStartOf="@+id/no_eight" />
+
+        <Button
+            android:id="@+id/clear"
+            style="@style/number_button"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="@string/clear_all"
+            app:layout_constraintBottom_toTopOf="@id/no_seven"
+            app:layout_constraintEnd_toEndOf="@+id/no_seven"
+            app:layout_constraintStart_toStartOf="@+id/no_seven" />
+
+        <Button
+            android:id="@+id/times"
+            style="@style/operator_button"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:text="@string/x"
+            app:layout_constraintBottom_toTopOf="@id/plus"
+            app:layout_constraintEnd_toEndOf="@+id/plus"
+            app:layout_constraintStart_toStartOf="@+id/plus" />
+
+        <Button
+            android:id="@+id/no_nine"
+            style="@style/number_button"
+            android:layout_marginVertical="4dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/_9"
+            app:layout_constraintEnd_toEndOf="@+id/no_six"
+            app:layout_constraintStart_toStartOf="@+id/no_six"
+            app:layout_constraintTop_toBottomOf="@id/reminder" />
+
+        <Button
+            android:id="@+id/no_eight"
+            style="@style/number_button"
+            android:layout_marginVertical="4dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/_8"
+            app:layout_constraintEnd_toEndOf="@+id/no_five"
+            app:layout_constraintStart_toStartOf="@+id/no_five"
+            app:layout_constraintTop_toBottomOf="@id/delete" />
+
+        <Button
+            android:id="@+id/no_seven"
+            style="@style/number_button"
+            android:layout_marginVertical="4dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/_7"
+            app:layout_constraintEnd_toEndOf="@+id/no_four"
+            app:layout_constraintStart_toStartOf="@+id/no_four"
+            app:layout_constraintTop_toBottomOf="@id/clear" />
+
+        <Button
+            android:id="@+id/plus"
+            style="@style/operator_button"
+            android:layout_marginVertical="4dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/plus"
+            app:layout_constraintBottom_toTopOf="@id/minus"
+            app:layout_constraintEnd_toEndOf="@+id/times"
+            app:layout_constraintStart_toStartOf="@id/minus"
+            app:layout_constraintTop_toBottomOf="@id/minus" />
+
+        <Button
+            android:id="@+id/no_six"
+            style="@style/number_button"
+            android:layout_marginVertical="4dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/_6"
+            app:layout_constraintBottom_toTopOf="@id/no_three"
+            app:layout_constraintEnd_toEndOf="@id/no_three"
+            app:layout_constraintStart_toStartOf="@id/no_three"
+            app:layout_constraintTop_toBottomOf="@id/no_nine" />
+
+        <Button
+            android:id="@+id/no_five"
+            style="@style/number_button"
+            android:layout_marginVertical="4dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/_5"
+            app:layout_constraintBottom_toTopOf="@id/no_tow"
+            app:layout_constraintEnd_toEndOf="@+id/no_tow"
+            app:layout_constraintStart_toStartOf="@id/no_tow"
+            app:layout_constraintTop_toBottomOf="@id/no_eight" />
+
+        <Button
+            android:id="@+id/no_four"
+            style="@style/number_button"
+            android:layout_marginVertical="4dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/_4"
+            app:layout_constraintBottom_toTopOf="@id/no_one"
+            app:layout_constraintEnd_toEndOf="@+id/no_one"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/no_one"
+            app:layout_constraintTop_toBottomOf="@+id/no_seven" />
+
+        <Button
+            android:id="@+id/minus"
+            style="@style/operator_button"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/minus"
+            app:layout_constraintBottom_toBottomOf="@id/equal"
+            app:layout_constraintEnd_toEndOf="@+id/equal"
+            app:layout_constraintStart_toStartOf="@id/equal"
+            app:layout_constraintTop_toBottomOf="@id/plus" />
+
+        <Button
+            android:id="@+id/no_three"
+            style="@style/number_button"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/_3"
+            app:layout_constraintBottom_toBottomOf="@id/dot"
+            app:layout_constraintEnd_toEndOf="@+id/dot"
+            app:layout_constraintStart_toStartOf="@+id/dot"
+            app:layout_constraintTop_toBottomOf="@+id/no_six" />
+
+        <Button
+            android:id="@+id/no_tow"
+            style="@style/number_button"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/_2"
+            app:layout_constraintBottom_toBottomOf="@id/no_zero"
+            app:layout_constraintEnd_toEndOf="@+id/no_zero"
+            app:layout_constraintStart_toStartOf="@id/no_zero"
+            app:layout_constraintTop_toBottomOf="@id/no_five" />
+
+        <Button
+            android:id="@+id/no_one"
+            style="@style/number_button"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/_1"
+            app:layout_constraintBottom_toBottomOf="@id/minus_plus"
+            app:layout_constraintEnd_toEndOf="@+id/minus_plus"
+            app:layout_constraintStart_toStartOf="@id/minus_plus"
+            app:layout_constraintTop_toBottomOf="@id/no_four" />
+
+        <Button
+            android:id="@+id/equal"
+            style="@style/operator_button"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/equal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dot"
+            app:layout_constraintTop_toBottomOf="@id/minus" />
+
+        <Button
+            android:id="@+id/dot"
+            style="@style/number_button"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/dot"
+            app:layout_constraintBottom_toBottomOf="@id/equal"
+            app:layout_constraintEnd_toStartOf="@id/equal"
+            app:layout_constraintStart_toEndOf="@id/no_zero"
+            app:layout_constraintTop_toBottomOf="@id/no_three" />
+
+        <Button
+            android:id="@+id/no_zero"
+            style="@style/number_button"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/_0"
+            app:layout_constraintBottom_toBottomOf="@id/equal"
+            app:layout_constraintEnd_toStartOf="@id/dot"
+            app:layout_constraintStart_toEndOf="@id/minus_plus"
+            app:layout_constraintTop_toBottomOf="@id/no_tow" />
+
+        <Button
+            android:id="@+id/minus_plus"
+            style="@style/number_button"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:onClick="onClickNumber"
+            android:text="@string/plus_negative"
+            app:layout_constraintBottom_toBottomOf="@id/equal"
+            app:layout_constraintEnd_toStartOf="@id/no_zero"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/no_one" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
