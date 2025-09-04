@@ -177,10 +177,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun addOperation(symbol: String) {
         val currentText = binding.inputDigit.text.toString()
-        if (currentText.isNotEmpty() && !currentText.last().isOperator()) {
-            binding.inputDigit.text = currentText + symbol
+        if (currentText.isNotEmpty()) {
+            val lastChar = currentText.trim().last()
+            if (!lastChar.isOperator()) {
+                binding.inputDigit.text = currentText + symbol
+            }
         }
     }
+
 
     private fun Char.isOperator() = this in "+-×÷%"
 
